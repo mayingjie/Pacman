@@ -37,20 +37,16 @@ private:
 
 public:
     Map();
-    Map( string filename );
     ~Map();
     bool loadMap( string file );
-
-    void render();
     
     vector<SDL_Rect *>& getWalls();
     vector<SDL_Rect *>& getFoods();
     
     int getFoodsEatenCount();
-    void eatFood( SDL_Rect * pacman );
     
     bool isRectCollision( SDL_Rect *A, SDL_Rect *B );
-    bool isMultiRectCollision( SDL_Rect *A, vector<SDL_Rect *> &Bs );
+    bool isMultiRectCollision( SDL_Rect *A );
     
 };
 

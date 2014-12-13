@@ -13,7 +13,6 @@
 #include "Timer.h"
 #include "Map.h"
 #include "Pacman.h"
-#include "SDL/SDL.h"
 #include "SDL_ttf/SDL_ttf.h"
 #include "SDL_image/SDL_image.h"
 
@@ -31,7 +30,6 @@ const int SCREEN_BPP = 32;
 // The frames per second
 
 // Event structure
-SDL_Event event;
 
 class Window{
 private:
@@ -42,6 +40,9 @@ private:
     SDL_Surface* background = NULL;
     SDL_Surface* screen = NULL;
     SDL_Surface* foodSurface = NULL;
+    
+    // Event
+    SDL_Event event;
 
     // Text
     TTF_Font *font = NULL;
@@ -57,13 +58,19 @@ private:
     
 public:
     Window();
+    ~Window();
+    
+    void init();
+    void load_file();
+
     SDL_Surface* load_image( std::string filename, bool colorKey = false);
     void apply_surface( int x, int y, SDL_Surface* src, SDL_Surface* dest );
-    bool init();
     SDL_Surface* load_message( std::string txt );
-    bool load_file();
     void loop();
-    ~Window();
+    
+    // Show
+    void pacmanRender();
+    void mapRender();
 };
 
 #endif /* defined(__Pacman__Window__) */

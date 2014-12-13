@@ -8,15 +8,13 @@
 
 #include "Map.h"
 
-Map::Map(){}
-
-Map::Map( std::string filename ){
+Map::Map(){
     
     walls = std::vector<SDL_Rect *>();
     foods = std::vector<SDL_Rect *>();
     foodsTotal = 0;
     
-    loadMap( filename );
+    loadMap( "map.txt" );
 }
 
 Map::~Map(){
@@ -82,29 +80,28 @@ std::vector<SDL_Rect *>& Map::getFoods() {
     return foods;
 }
 
-void Map::eatFood( SDL_Rect *pacman ) {
-    
-    for( auto it = foods.begin(); it != foods.end(); ++it ){
-        if( isRectCollision( pacman, *it ) ) {
-            delete *it;
-            foods.erase( it );
-            break;
-        }
-    }
-}
-
 int Map::getFoodsEatenCount() {
     return foodsTotal-(int)foods.size();
 }
 
-bool Map::isMultiRectCollision( SDL_Rect *A, vector<SDL_Rect *> &Bs ){
+bool Map::isMultiRectCollision( SDL_Rect *A ){
     bool isCollision = false;
     
-    for( auto it = Bs.begin(); it != Bs.end(); ++it ){
+    for( auto it = walls.begin(); it != walls.end(); ++it ){
         if( isRectCollision( A, *it ) ){
             isCollision = true;
+            break;
         }
     }
+    
+    for( auto it = foods.begin(); it != foods.end(); ++it ){
+        if( isRectCollision( A, *it ) ){
+            delete (*it);
+            foods.erase( it );
+            break;
+        }
+    }
+    
     return isCollision;
 }
 

@@ -12,7 +12,7 @@
 #include "Timer.h"
 #include "SDL/SDL.h"
 
-const int FRAMES_PER_SECOND = 5;
+const int FRAMES_PER_SECOND = 2;
 
 class Timer{
 private:

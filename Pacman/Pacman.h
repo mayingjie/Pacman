@@ -10,14 +10,18 @@
 #define Pacman_Pacman_h
 
 #include "Pacman.h"
+#include "Map.h"
 #include "SDL/SDL.h"
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 // Size of pacman
 const int PACMAN_HEIGHT = 20;
 const int PACMAN_WIDTH = 20;
+
+const int PACMAN_MOVE_DISTANCE = 20;
 
 class Pacman{
 private:
@@ -27,12 +31,10 @@ private:
     int yVel;
 public:
     Pacman();
-    Pacman( std::string );
     bool loadPacman( std::string );
-    int* getPosition();
-    void handle_input();
-    void move( SDL_Rect * );
-    void render();
+    SDL_Rect& getRect();
+    void getInput( SDL_Event *event );
+    void move( Map *map, SDL_Rect * );
 };
 
 

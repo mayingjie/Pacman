@@ -8,6 +8,13 @@
 
 #include "Window.h"
 
+Window::Window(){
+    init();
+    load_file();
+    
+    // init map, pacman
+    
+}
 /*load the image, then returns a pointer to the optimized
  version of the loaded image. */
 SDL_Surface* Window::load_image( std::string filename, bool colorKey ) {
@@ -35,15 +42,16 @@ void Window::apply_surface( int x, int y, SDL_Surface* src, SDL_Surface* dest ) 
     SDL_BlitSurface( src, NULL, dest, &offset );
 }
 
-bool Window::init() {
+void Window::init() {
+    
     screenRect = SDL_Rect{ 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     
     if( SDL_Init( SDL_INIT_EVERYTHING ) == -1) {
-        return false;
+        throw exception();
     }
     
     if( TTF_Init() == -1){
-        return false;
+        throw exception();
     }
     
     // Set window caption
@@ -52,10 +60,9 @@ bool Window::init() {
     // Set up the screen
     screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
     if( screen == NULL) {
-        return false;
+        throw exception();
     }
     
-    return true;
 }
 
 SDL_Surface* Window::load_message( std::string txt ) {
@@ -65,7 +72,26 @@ SDL_Surface* Window::load_message( std::string txt ) {
     return message;
 }
 
-bool Window::load_file() {
+// Show
+void Window::mapRender() {
+    vector<SDL_Rect *> walls = _map.getWalls();
+    for( auto it = walls.begin(); it != walls.end(); ++it ){
+        apply_surface( (*it)->x, (*it)->y, wallSurface, screen );
+    }
+    
+    vector<SDL_Rect *> foods = _map.getFoods();
+    for( auto it = foods.begin(); it != foods.end(); ++it ){
+        apply_surface( (*it)->x, (*it)->y, foodSurface, screen);
+    }
+    
+}
+void Window::pacmanRender() {
+    SDL_Rect pacmanRect = _pacman.getRect();
+    apply_surface( pacmanRect.x, pacmanRect.y, pacmanSurface, screen );
+}
+
+
+void Window::load_file() {
     background = load_image( "blue.jpg" );
     pacmanSurface = load_image( "pacman.png", true );
     wallSurface = load_image( "wall.jpg" );
@@ -75,33 +101,35 @@ bool Window::load_file() {
     
     if( background == NULL ){
         std::cout << "blackground load fail" << std::endl;
-        return false;
+        throw exception();
     }
     
     if( pacmanSurface == NULL ){
         std::cout << "pacman load fail" << std::endl;
-        return false;
+        throw exception();
     }
     
     if( wallSurface == NULL ){
         std::cout << "wall load fail" << std::endl;
-        return false;
+        throw exception();
     }
     
     if( font == NULL ){
         std::cout << "font load fail" << std::endl;
-        return false;
+        throw exception();
     }
     
-    return true;
 }
 void Window::loop(){
+    
+
     while( quit == false ) {
         
         _fps.start();
         // Events
         while( SDL_PollEvent( &event )) {
-            //_pacman.handle_input();
+            
+            _pacman.getInput( &event );
             
             if( event.type == SDL_QUIT ) {
                 quit = true;
@@ -109,22 +137,23 @@ void Window::loop(){
         }
         
         // Logic
-        //_pacman.move(&_map, &screenRect);
+        _pacman.move(&_map, &screenRect);
         
         // Rendering
         apply_surface( 0, 0, background, screen );
+
+        mapRender();
+        pacmanRender();
         
         // Score
         string txt = "Score: "+std::to_string( 20*_map.getFoodsEatenCount() );
         scoreSurface = load_message( txt );
         apply_surface( 20, SCREEN_HEIGHT-50, scoreSurface, screen );
         
-        //_map.render();
-        
+        // Update screen
         if( SDL_Flip( screen ) == -1 ) {
             return;
         }
-        
         
         //Cap the frame rate
         if( _fps.getTicks() < 1000 / FRAMES_PER_SECOND )
@@ -134,9 +163,7 @@ void Window::loop(){
     }
 }
 
-Window::Window(){
-    init();
-}
+
 
 Window::~Window(){
     // Free the surface

@@ -13,16 +13,8 @@ int main( int argc, char* args[] )
 {
     
     Window window;
-    
-//    if( window.init() == false ) {
-//        return 1;
-//    }
-//    
-//    if ( window.load_file() == false) {
-//        return 1;
-//    }
-//    
-//    window.loop();
+
+    window.loop();
     
     return 0;
 }

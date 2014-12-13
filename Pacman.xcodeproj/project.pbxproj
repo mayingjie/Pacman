@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0388A11A3B8EDA0005B9B4 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0388A01A3B8EDA0005B9B4 /* SDLMain.m */; };
+		AF0388A21A3B8FF90005B9B4 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFF46101A3B8AC400DA64C7 /* SDL_image.framework */; };
+		AF0388A31A3B8FF90005B9B4 /* SDL_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFF46111A3B8AC400DA64C7 /* SDL_ttf.framework */; };
+		AF0388A41A3B8FF90005B9B4 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFF46121A3B8AC400DA64C7 /* SDL.framework */; };
 		AFFF45F91A3B8A5D00DA64C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFFF45F81A3B8A5D00DA64C7 /* main.cpp */; };
+		AFFF46091A3B8AA300DA64C7 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFFF45FF1A3B8AA300DA64C7 /* Map.cpp */; };
+		AFFF460A1A3B8AA300DA64C7 /* Pacman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFFF46011A3B8AA300DA64C7 /* Pacman.cpp */; };
+		AFFF460C1A3B8AA300DA64C7 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFFF46051A3B8AA300DA64C7 /* Timer.cpp */; };
+		AFFF460D1A3B8AA300DA64C7 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFFF46071A3B8AA300DA64C7 /* Window.cpp */; };
+		AFFF460F1A3B8AB400DA64C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF460E1A3B8AB400DA64C7 /* Cocoa.framework */; };
+		AFFF46131A3B8AC400DA64C7 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF46101A3B8AC400DA64C7 /* SDL_image.framework */; };
+		AFFF46141A3B8AC400DA64C7 /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF46111A3B8AC400DA64C7 /* SDL_ttf.framework */; };
+		AFFF46151A3B8AC400DA64C7 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF46121A3B8AC400DA64C7 /* SDL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -17,14 +29,31 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
+				AF0388A21A3B8FF90005B9B4 /* SDL_image.framework in CopyFiles */,
+				AF0388A31A3B8FF90005B9B4 /* SDL_ttf.framework in CopyFiles */,
+				AF0388A41A3B8FF90005B9B4 /* SDL.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF03889F1A3B8EDA0005B9B4 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
+		AF0388A01A3B8EDA0005B9B4 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		AFFF45F51A3B8A5D00DA64C7 /* Pacman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pacman; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFF45F81A3B8A5D00DA64C7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AFFF45FF1A3B8AA300DA64C7 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		AFFF46001A3B8AA300DA64C7 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		AFFF46011A3B8AA300DA64C7 /* Pacman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pacman.cpp; sourceTree = "<group>"; };
+		AFFF46021A3B8AA300DA64C7 /* Pacman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pacman.h; sourceTree = "<group>"; };
+		AFFF46051A3B8AA300DA64C7 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		AFFF46061A3B8AA300DA64C7 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		AFFF46071A3B8AA300DA64C7 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		AFFF46081A3B8AA300DA64C7 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		AFFF460E1A3B8AB400DA64C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AFFF46101A3B8AC400DA64C7 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
+		AFFF46111A3B8AC400DA64C7 /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = ../../../../../../Library/Frameworks/SDL_ttf.framework; sourceTree = "<group>"; };
+		AFFF46121A3B8AC400DA64C7 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +61,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFF46131A3B8AC400DA64C7 /* SDL_image.framework in Frameworks */,
+				AFFF46141A3B8AC400DA64C7 /* SDL_ttf.framework in Frameworks */,
+				AFFF46151A3B8AC400DA64C7 /* SDL.framework in Frameworks */,
+				AFFF460F1A3B8AB400DA64C7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +74,10 @@
 		AFFF45EC1A3B8A5D00DA64C7 = {
 			isa = PBXGroup;
 			children = (
+				AFFF46101A3B8AC400DA64C7 /* SDL_image.framework */,
+				AFFF46111A3B8AC400DA64C7 /* SDL_ttf.framework */,
+				AFFF46121A3B8AC400DA64C7 /* SDL.framework */,
+				AFFF460E1A3B8AB400DA64C7 /* Cocoa.framework */,
 				AFFF45F71A3B8A5D00DA64C7 /* Pacman */,
 				AFFF45F61A3B8A5D00DA64C7 /* Products */,
 			);
@@ -57,6 +94,16 @@
 		AFFF45F71A3B8A5D00DA64C7 /* Pacman */ = {
 			isa = PBXGroup;
 			children = (
+				AF03889F1A3B8EDA0005B9B4 /* SDLMain.h */,
+				AF0388A01A3B8EDA0005B9B4 /* SDLMain.m */,
+				AFFF46001A3B8AA300DA64C7 /* Map.h */,
+				AFFF45FF1A3B8AA300DA64C7 /* Map.cpp */,
+				AFFF46021A3B8AA300DA64C7 /* Pacman.h */,
+				AFFF46011A3B8AA300DA64C7 /* Pacman.cpp */,
+				AFFF46061A3B8AA300DA64C7 /* Timer.h */,
+				AFFF46051A3B8AA300DA64C7 /* Timer.cpp */,
+				AFFF46081A3B8AA300DA64C7 /* Window.h */,
+				AFFF46071A3B8AA300DA64C7 /* Window.cpp */,
 				AFFF45F81A3B8A5D00DA64C7 /* main.cpp */,
 			);
 			path = Pacman;
@@ -118,7 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF0388A11A3B8EDA0005B9B4 /* SDLMain.m in Sources */,
+				AFFF460D1A3B8AA300DA64C7 /* Window.cpp in Sources */,
+				AFFF46091A3B8AA300DA64C7 /* Map.cpp in Sources */,
 				AFFF45F91A3B8A5D00DA64C7 /* main.cpp in Sources */,
+				AFFF460C1A3B8AA300DA64C7 /* Timer.cpp in Sources */,
+				AFFF460A1A3B8AA300DA64C7 /* Pacman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +254,10 @@
 		AFFF45FD1A3B8A5D00DA64C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +265,10 @@
 		AFFF45FE1A3B8A5D00DA64C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +292,7 @@
 				AFFF45FE1A3B8A5D00DA64C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
